@@ -1,0 +1,27 @@
+# singleton.py
+
+class Singleton:
+    _instance = None
+
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+    def some_method(self):
+        print("Método de la instancia Singleton")
+
+
+# main.py
+
+from singleton import Singleton
+
+# Crear instancias Singleton
+singleton1 = Singleton()
+singleton2 = Singleton()
+
+# Verificar si son la misma instancia
+print(singleton1 is singleton2)  # Salida: True
+
+# Llamar a un método de la instancia Singleton
+singleton1.some_method()  # Salida: Método de la instancia Singleton
